@@ -1,0 +1,110 @@
+/* TODO: Needs refactor urgently. */
+
+.undecorated {
+    text-decoration: none;
+    color: #000;
+    margin: 0; padding: 0;
+}
+
+.ellipsis-overflow {
+    margin: 0; padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;  
+}
+
+#auth {
+    width: 150px;
+    height: 100px;
+
+    border-radius: 3px;
+    background-color: #fff;
+    color: #000;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 5px;
+    font-size: 20px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#auth > section {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 150px;
+    height: 50px;
+    transition: 0.2s ease;
+}
+
+#auth * {
+    display: block;
+}
+
+#username {
+    font-size: 14px;
+    text-align: center;
+    margin-right 5px;
+    flex-shrink: 100;
+}
+
+#userphoto {
+    border-radius: 25px;
+    margin-left: 5px;
+}
+
+html {
+    background: linear-gradient(#47a6ff, #3de13d) no-repeat center center fixed;
+    background-size: cover;
+
+    text-align: center;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+
+    #auth {
+        position: fixed;
+        top: 20px; right: 20px;
+        height: 50px;
+    }
+
+    #auth:hover > * {
+        transform: translateY(-50px);
+    }
+}
+
+.justify { justify-content: space-between !important; }
+.justify > * { margin-right: auto !important; }
+
+input[type='text'] {
+    padding: 10px;
+    border: solid 3px #c9c9c9;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: #969696;
+    transition: border 0.3s;
+}
+
+input[type='text']:focus {
+    border: solid 3px #969696;
+}
+
+html {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

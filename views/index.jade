@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        title OCCO
+        link(rel='stylesheet', href='/styles/index.css')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    body
+        header
+            img(src='/images/logo.svg', width='150px', height='150px')
+            h1 OCCO
+            p A game about dots. And maybe explosions.
+
+        if authenticated
+            #auth
+                section.justify
+                    img#userphoto(src=user.photo width='40px' height='40px')
+                    p#username.ellipsis-overflow= user.name
+                section
+                    a.undecorated(href='/logout') LOGOUT
+        else
+            #auth
+                section
+                    p.undecorated LOGIN
+                section
+                    a(href='/auth/google')
+                        img(src='/images/google.png', alt='Google', width='75px', height='50px')
+                    a(href='/auth/facebook')
+                        img(src='/images/facebook.png', alt='Facebook', width='75px', height='50px')
+
+        form(action='/room', method='get')
+            input(type='text', name='key', placeholder='Room Key...', style='display: inline-block; margin: 10px; height: 50px; width: 300px; font-size: 18px;', autofocus, autocomplete='off')
+
+        //- p If you wanna play randoms, try: #{user.name}.
