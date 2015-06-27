@@ -58,7 +58,7 @@ build/Release
 node_modules
 
 # App configuration
-config.coffee
+config.js
 
 ### Windows ###
 # Windows image file caches
@@ -84,3 +84,5 @@ $RECYCLE.BIN/
 .floo
 .flooignore
 
+# Build Directory
+public/

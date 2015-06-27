@@ -1,8 +1,7 @@
-
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 
-module.exports = function(app) {
+module.exports = function(app, config) {
   var passport = require('passport');
   app.use(passport.initialize());
   app.use(passport.session());
@@ -28,10 +27,12 @@ module.exports = function(app) {
 
   //////////////////////////////////////////////////
 
-  passport.use(new GoogleStrategy(
-    CONFIG.auth.google
-    ,
-    function(accessToken, refreshToken, profile, done) {
+  passport.use(new GoogleStrategy({
+      clientID: config.auth.google.clientID,
+      clientSecret: config.auth.google.clientSecret,
+      callbackURL: config.auth.google.callbackURL
+    },
+    function (accessToken, refreshToken, profile, done) {
       if (!(profile && profile.id)) {
         return done('The user\'s profile doesn\'t have an id.');
       }
@@ -50,15 +51,19 @@ module.exports = function(app) {
   );
 
   app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
-    function(req, res) {
+    function (req, res) {
       res.redirect('/');
   });
 
   //////////////////////////////////////////////////
 
-  passport.use(new FacebookStrategy(
-    CONFIG.auth.facebook,
-    function(accessToken, refreshToken, profile, done) {
+  passport.use(new FacebookStrategy({
+      clientID: config.auth.facebook.clientID,
+      clientSecret: config.auth.facebook.clientSecret,
+      callbackURL: config.auth.facebook.callbackURL,
+      profileFields: ["id", "photos", "displayName", "verified"]
+    },
+    function (accessToken, refreshToken, profile, done) {
       if (!(profile && profile.id)) {
         return done('The user\'s profile doesn\'t have an id.');
       }

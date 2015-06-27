@@ -1,18 +1,10 @@
-/*
-  Occo v1.0.0
-  Created by aloha-snackbar
-*/
-
 'use strict';
 
-var PORT = 8080 || process.env.PORT;
-var SECRET = 'keyboard cat';
+var PORT = process.env.PORT || 8080;
 
 //////////////////////////////////////////////////
 
-require('coffee-script/register');
-
-GLOBAL.CONFIG = require('./config');
+var config = require('../config');
 
 //////////////////////////////////////////////////
 
@@ -30,13 +22,13 @@ var io = socketIO(server);
 //////////////////////////////////////////////////
 
 app.use(session({
-  secret: SECRET,
+  secret: config.secret || '',
   resave: false,
   saveUninitialized: false
 }));
 
 // Load OAuth Modules
-require('./lib/passport')(app);
+require('./passport')(app, config);
 
 //////////////////////////////////////////////////
 
@@ -51,9 +43,9 @@ app.get('/', function (req, res) {
 });
 
 app.get('*', function (req, res) {
-    res.render('404');
+  res.render('404');
 });
 
 server.listen(PORT);
 
-console.log("Server started on port "+PORT+".")
+console.log('Server started on port '+PORT+'.');
