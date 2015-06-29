@@ -31,16 +31,15 @@ gulp.task('css', function () {
 });
 
 gulp.task('js', function () {
-  var babel = require('gulp-babel');
+  var coffee = require('gulp-coffee');
   var uglify = require('gulp-uglify');
 
-  return gulp.src('assets/**/*.js')
+  return gulp.src('assets/**/*.coffee')
     .pipe(changed('public'))
-    .pipe(babel())
+    .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(uglify())
     .pipe(gulp.dest('public'));
 });
-
 gulp.task('html', function () {
   var htmlmin = require('gulp-htmlmin');
 
