@@ -35,8 +35,8 @@ gulp.task('js', function () {
   var uglify = require('gulp-uglify');
 
   return gulp.src('assets/**/*.coffee')
-    .pipe(changed('public'))
-    .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(changed('public', { extension: 'js' }))
+    .pipe(coffee({bare: true}))
     .pipe(uglify())
     .pipe(gulp.dest('public'));
 });
