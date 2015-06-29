@@ -1,112 +1,94 @@
-.ellipsis-overflow,
-.undecorated,
-body {
-    margin: 0;
-    padding: 0
-}
-#username,
-header,
 html {
-    text-align: center
+  /*background: #58E3CD linear-gradient(0deg, #1CD8D2 10%, #93EDC7 90%) no-repeat fixed center;*/
+  background: black linear-gradient(0deg, #0f8 0%, #08f 100%) no-repeat fixed center;
 }
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 300;
-    src: local('Open Sans Light'), local('OpenSans-Light'), url(/fonts/opensans-light.ttf) format('truetype')
-}
-html {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%
-}
-*,
-:after,
-:before {
-    box-sizing: inherit
-}
-body {
-    font-family: 'Open Sans', 'Avenir Book', 'Helvetica Neue', Helvetica, Arial, sans-serif
-}
-.undecorated {
-    text-decoration: none;
-    color: #000
-}
-.ellipsis-overflow {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap
-}
-#auth {
-    width: 150px;
-    height: 100px;
-    border-radius: 3px;
-    background-color: #fff;
-    color: #000;
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, .5) 0 0 5px;
-    font-size: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
-}
-#auth>section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 50px;
-    transition: .2s ease
-}
-#auth * {
-    display: block
-}
-#username {
-    font-size: 14px;
-    flex-shrink: 100
-}
-#userphoto {
-    border-radius: 25px;
-    margin-left: 5px
-}
+
+/*//////////////////////////////////////////////*/
+
 header {
-    width: 100%;
-    color: #fff;
-    padding-top: 20px
+  width: 100%;
+  color: #fff;
+  padding-top: 20px;
+  text-align: center;
 }
+
+/*//////////////////////////////////////////////*/
+
+#auth {
+  width: 150px;
+  height: 100px;
+  border-radius: 3px;
+  background-color: #fff;
+  color: #000;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, .25) 0 0 5px;
+  font-size: 14px;
+  display: block;
+  margin: 0 auto;
+}
+
+#auth * {
+  display: block;
+}
+
+#auth > section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  transition: .2s ease;
+}
+
 @media only screen and (min-width: 768px) {
-    #auth {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        height: 50px
-    }
-    #auth:hover>* {
-        transform: translateY(-50px)
-    }
+  #auth {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    height: 50px;
+    outline: none;
+  }
+
+  #auth:hover > *, #auth:focus > * {
+    transform: translateY(-50px);
+  }
 }
-.justify {
-    justify-content: space-between !important;
+
+/*//////////////////////////////////////////////*/
+
+.caption {
+  width: 100px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
 }
-.justify>* {
-    margin-right: auto !important;
+
+.circle {
+  border-radius: 50%;
 }
-input[type=text] {
-    padding: 10px;
-    border: 3px solid #c9c9c9;
-    border-radius: 0;
-    box-shadow: none;
-    outline: 0;
-    color: #969696;
-    transition: border .3s
+
+.big-link {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.5em;
 }
-input[type=text]:focus {
-    border: 3px solid #969696
+
+/*//////////////////////////////////////////////*/
+
+input[type='text'] {
+  padding: 10px;
+  margin: 20px 10px;
+  border: 1px solid #ccc;
+  outline: 0;
+  color: #999;
+  transition: border .3s;
+  box-shadow: rgba(0, 0, 0, .25) 0 0 5px;
+  border-radius: 3px;
+  height: 50px; width: 300px;
+  font-size: 18px;
 }
-html {
-    background: linear-gradient(#47a6ff, #3de13d) center center no-repeat fixed;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center
+
+input[type='text']:focus {
+  border-color: #999;
 }
