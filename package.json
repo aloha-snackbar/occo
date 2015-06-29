@@ -2,7 +2,7 @@
   "name": "occo",
   "version": "1.0.0",
   "description": "A reasonably ambitious rip-off.",
-  "main": "lib/index.js",
+  "main": "server/index.js",
   "scripts": {},
   "repository": {
     "type": "git",
