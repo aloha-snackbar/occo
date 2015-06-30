@@ -1,7 +1,5 @@
 'use strict';
 
-//////////////////////////////////////////////////
-
 var config = require('../config');
 
 //////////////////////////////////////////////////
@@ -14,22 +12,22 @@ var express = require('express');
 var session = require('express-session');
 var socketIO = require('socket.io');
 var protocol = require('spdy');
-var compress = require('compression');
+var compression = require('compression');
 
 //////////////////////////////////////////////////
 
-var protocolOptions = {
+var serverOptions = {
   key: config.tls.key,
-  cert: config.tls.cert,
+  cert: config.tls.cert
 };
 
 var app = express();
-var server = protocol.createServer(protocolOptions, app);
+var server = protocol.createServer(serverOptions, app);
 var io = socketIO(server);
 
 //////////////////////////////////////////////////
 
-app.use(compress());
+app.use(compression());
 
 //////////////////////////////////////////////////
 

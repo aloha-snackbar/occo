@@ -40,6 +40,7 @@ gulp.task('js', function () {
     .pipe(uglify())
     .pipe(gulp.dest('public'));
 });
+
 gulp.task('html', function () {
   var htmlmin = require('gulp-htmlmin');
 

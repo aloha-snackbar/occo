@@ -5,9 +5,7 @@ html
 
     link(rel='stylesheet', href='/styles/main.css')
     link(rel='stylesheet', href='/styles/index.css')
-
-    script(src='/scripts/index.js')
-
+    
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
   body
     header
@@ -18,7 +16,7 @@ html
     if authenticated
       #auth(tabindex='0')
         section
-          img.circle(src=user.photo, width='40px', height='40px')
+          img.circle(src=user.photo width='40px' height='40px')
           p.caption= user.name
         section
           a.big-link(href='/logout') LOGOUT
