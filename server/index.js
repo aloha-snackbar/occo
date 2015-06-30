@@ -1,23 +1,35 @@
 'use strict';
 
-var PORT = process.env.PORT || 8080;
-
 //////////////////////////////////////////////////
 
 var config = require('../config');
 
 //////////////////////////////////////////////////
 
-var express = require('express');
-var session = require('express-session');
-var socketIO = require('socket.io');
-var http = require('http');
+var PORT = process.env.PORT || config.port || 8443;
 
 //////////////////////////////////////////////////
 
+var express = require('express');
+var session = require('express-session');
+var socketIO = require('socket.io');
+var protocol = require('spdy');
+var compress = require('compression');
+
+//////////////////////////////////////////////////
+
+var protocolOptions = {
+  key: config.tls.key,
+  cert: config.tls.cert,
+};
+
 var app = express();
-var server = http.Server(app);
+var server = protocol.createServer(protocolOptions, app);
 var io = socketIO(server);
+
+//////////////////////////////////////////////////
+
+app.use(compress());
 
 //////////////////////////////////////////////////
 

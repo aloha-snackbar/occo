@@ -31,12 +31,12 @@ gulp.task('css', function () {
 });
 
 gulp.task('js', function () {
-  var coffee = require('gulp-coffee');
+  var babel = require('gulp-babel');
   var uglify = require('gulp-uglify');
 
-  return gulp.src('assets/**/*.coffee')
-    .pipe(changed('public', { extension: 'js' }))
-    .pipe(coffee({bare: true}))
+  return gulp.src('assets/**/*.js')
+    .pipe(changed('public'))
+    .pipe(babel())
     .pipe(uglify())
     .pipe(gulp.dest('public'));
 });
