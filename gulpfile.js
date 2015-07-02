@@ -36,7 +36,7 @@ gulp.task('js', function () {
 
   return gulp.src('assets/**/*.js')
     .pipe(changed('public'))
-    .pipe(babel())
+    .pipe(babel({ compact: false }))
     .pipe(uglify())
     .pipe(gulp.dest('public'));
 });
